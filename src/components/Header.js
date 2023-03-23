@@ -1,6 +1,7 @@
 import Book from "./Book";
 import Moon from "./Moon";
 import Search from "./Search";
+import "./Header.css";
 
 export default function Header() {
   return (
@@ -21,10 +22,10 @@ function HeaderTop() {
           <option>Serif</option>
           <option>Mono</option>
         </select>
-        <div className="header__themeButton">
-          <input type="checkbox" />
-          <span></span>
-        </div>
+        <div className="header__line"></div>
+        <form className="header__themeButton">
+          <div className="header__circle"></div>
+        </form>
         <Moon />
       </div>
     </div>
@@ -34,7 +35,11 @@ function HeaderTop() {
 function HeaderSearch() {
   return (
     <div className="header__search">
-      <input type="text" />
+      <input
+        type="text"
+        className="header__input"
+        placeholder="Search for any word..."
+      />
       <Search />
     </div>
   );

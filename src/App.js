@@ -22,7 +22,7 @@ export default function App() {
 
   return (
     <>
-      <Dictionary />
+      <Dictionary wordData={wordData} />
       {wordData ? (
         <div>
           <h1>{word}</h1>
