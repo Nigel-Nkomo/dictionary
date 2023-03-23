@@ -1,0 +1,35 @@
+:root {
+  /* Black */
+  --black: #050505;
+  --light-black: #1f1f1f;
+  --xlight-black: #2d2d2d;
+  --xxlight-black: #3a3a3a;
+
+  /* Grey */
+  --dark-grey: #757575;
+  --light-grey: #e9e9e9;
+  --xlight-grey: #f4f4f4;
+  --white: #ffffff;
+
+  /* Other */
+  --purple: #a445ed;
+  --orange: #ff5252;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 150%;
+}
+
+.dictionary {
+  position: absolute;
+  top: 20%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+}
