@@ -1,36 +1,45 @@
-import { Suspense, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
-import Loading from "./components/Loading";
 import Dictionary from "./components/Dictionary";
 
 export default function App() {
   //state
   const [wordData, setWordData] = useState(null);
-  const [word, setWord] = useState("annoy");
+  const [initialSound, setInitialSound] = useState(
+    "https://media.merriam-webster.com/audio/prons/en/us/mp3/j/juice001.mp3"
+  );
+  const [word, setWord] = useState("juice");
 
   //api
   const apiKey = "fd7f0c41-22a9-4981-bfe8-0bc968f204db";
   const requestURL = `https://www.dictionaryapi.com/api/v3/references/learners/json/${word}?key=${apiKey}`;
 
   useEffect(() => {
-    axios.get(requestURL).then((response) => {
-      setWordData(response.data);
-    });
-  }, []);
+    const getData = () => {
+      axios.get(requestURL).then((response) => setWordData(response.data));
+    };
+    getData();
+  }, [requestURL]);
 
-  console.log(wordData);
+  useEffect(() => {
+    if (wordData) {
+      const requestSoundURL = `https://media.merriam-webster.com/audio/prons/en/us/mp3/${wordData[0].hwi.prs[0].sound.audio.slice(
+        0,
+        1
+      )}/${wordData[0].hwi.prs[0].sound.audio}.mp3`;
+
+      setInitialSound(requestSoundURL);
+    }
+  }, [wordData]);
 
   return (
     <>
-      <Dictionary wordData={wordData} />
-      {wordData ? (
-        <div>
-          <h1>{word}</h1>
-          <p>{wordData[0].shortdef}</p>
-        </div>
-      ) : (
-        <Loading />
-      )}
+      <Dictionary
+        wordData={wordData}
+        word={word}
+        setWord={setWord}
+        sound={initialSound}
+      />
     </>
   );
 }

@@ -1,13 +1,14 @@
 import Book from "./Book";
 import Moon from "./Moon";
-import Search from "./Search";
+// import Search from "./Search";
 import "./Header.css";
+import { useState } from "react";
 
-export default function Header() {
+export default function Header({ word, setWord }) {
   return (
     <header className="header">
       <HeaderTop />
-      <HeaderSearch />
+      <HeaderSearch word={word} setWord={setWord} />
     </header>
   );
 }
@@ -32,15 +33,22 @@ function HeaderTop() {
   );
 }
 
-function HeaderSearch() {
+function HeaderSearch({ word, setWord }) {
+  const [typedValue, setTypedValue] = useState(word);
+
   return (
     <div className="header__search">
       <input
+        value={typedValue}
+        onChange={(e) => setTypedValue(e.target.value)}
         type="text"
         className="header__input"
         placeholder="Search for any word..."
       />
-      <Search />
+      {/* <Search /> */}
+      <button className="searchButton" onClick={() => setWord(typedValue)}>
+        Search
+      </button>
     </div>
   );
 }

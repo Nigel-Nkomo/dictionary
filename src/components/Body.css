@@ -1,0 +1,62 @@
+.body__word {
+  margin: 1rem 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.word {
+  font-size: 2rem;
+}
+
+.body__ipa {
+  color: var(--purple);
+  font-size: 1rem;
+}
+
+.body__play {
+  align-self: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  border: none;
+  text-align: center;
+  color: var(--purple);
+  background-color: var(--light-purple);
+  padding-left: 0.1rem;
+}
+
+.body__partOfSpeech {
+  margin: 1rem 0;
+  display: flex;
+  height: 1.5rem;
+}
+
+.line {
+  height: 100%;
+  flex-grow: 1;
+}
+
+.line__top {
+  height: 50%;
+  border-bottom: 1px solid var(--light-grey);
+}
+
+.line__bottom {
+  height: 50%;
+}
+
+.meaning__list {
+  padding-left: 2rem;
+}
+
+.meaning__item {
+  margin: 1rem 0;
+}
+
+.meaning__heading {
+  color: var(--dark-grey);
+}
+
+.meaning__synonym {
+  color: var(--purple);
+}
