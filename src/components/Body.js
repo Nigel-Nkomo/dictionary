@@ -1,14 +1,15 @@
 import Play from "./Play";
-import Loading from "./Loading";
 import "./Body.css";
 
 export default function Body({ wordData, sound, word }) {
   return (
     <>
-      <section className="body">
-        <Word wordData={wordData} sound={sound} />
-        <WordInfo wordData={wordData} />
-      </section>
+      {wordData && (
+        <section className="body">
+          <Word wordData={wordData} sound={sound} />
+          <WordInfo wordData={wordData} />
+        </section>
+      )}
     </>
   );
 }

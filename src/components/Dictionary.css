@@ -31,3 +31,37 @@ html {
   margin: 1rem auto;
   max-width: 800px;
 }
+
+@media (max-width: 832px) {
+  .dictionary {
+    max-width: 700px;
+  }
+}
+
+@media (max-width: 740px) {
+  .dictionary {
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 638px) {
+  html {
+    font-size: 130%;
+  }
+
+  .dictionary {
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 470px) {
+  html {
+    font-size: 110%;
+  }
+}
+
+@media (max-width: 322px) {
+  html {
+    font-size: 100%;
+  }
+}
