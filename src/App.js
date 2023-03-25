@@ -16,7 +16,10 @@ export default function App() {
 
   useEffect(() => {
     const getData = () => {
-      axios.get(requestURL).then((response) => setWordData(response.data));
+      axios.get(requestURL).then((response) => {
+        setWordData(response.data);
+        console.log(wordData);
+      });
     };
     getData();
   }, [requestURL]);

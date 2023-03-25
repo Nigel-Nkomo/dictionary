@@ -57,6 +57,12 @@
   color: var(--dark-grey);
 }
 
+.body__synonyms {
+  margin: 1rem 0;
+}
+
 .meaning__synonym {
+  padding-left: 2rem;
   color: var(--purple);
+  margin: 1rem 0;
 }

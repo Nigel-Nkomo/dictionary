@@ -59,9 +59,16 @@ function WordInfo({ wordData }) {
         </ul>
       </div>
       <div className="body__synonyms">
-        <p className="meaning__heading">
-          Other forms<span className="meaning__synonym">other_word</span>
-        </p>
+        <p className="meaning__heading">Other</p>
+        <ul className="meaning__synonym">
+          {wordData[0].meta.stems.map((stem, index) => {
+            return (
+              <li className="meaning__item" key={index}>
+                {stem}
+              </li>
+            );
+          })}
+        </ul>
       </div>
     </div>
   );
