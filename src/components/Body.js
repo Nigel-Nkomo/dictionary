@@ -49,8 +49,12 @@ function WordInfo({ wordData }) {
       <div className="meaning">
         <p className="meaning__heading">Meaning</p>
         <ul className="meaning__list">
-          {wordData[0].shortdef.map((shortdef) => {
-            return <li className="meaning__item">{wordData[0].shortdef}</li>;
+          {wordData[0].shortdef.map((shortdef, index) => {
+            return (
+              <li key={index} className="meaning__item">
+                {wordData[0].shortdef}
+              </li>
+            );
           })}
         </ul>
       </div>
