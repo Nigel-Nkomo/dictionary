@@ -17,6 +17,10 @@
   --orange: #ff5252;
 }
 
+.light-theme {
+  --txt: #050505;
+}
+
 * {
   padding: 0;
   margin: 0;

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Dictionary from "./components/Dictionary";
+import { getStorageTheme } from "./getStorageTheme";
 
 export default function App() {
   //state
@@ -10,11 +11,13 @@ export default function App() {
   );
   const [word, setWord] = useState("juice");
   const [typedValue, setTypedValue] = useState(word);
+  const [theme, setTheme] = useState(getStorageTheme());
 
   //api
   const apiKey = "fd7f0c41-22a9-4981-bfe8-0bc968f204db";
   const requestURL = `https://www.dictionaryapi.com/api/v3/references/learners/json/${word}?key=${apiKey}`;
 
+  //effects
   useEffect(() => {
     const getData = () => {
       axios.get(requestURL).then((response) => {
@@ -36,6 +39,19 @@ export default function App() {
     }
   }, [wordData]);
 
+  useEffect(() => {
+    document.documentElement.className = theme;
+    localStorage.setItem(theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    if (theme === "light-theme") {
+      setTheme("dark-theme");
+    } else {
+      setTheme("light-theme");
+    }
+  };
+
   return (
     <>
       <Dictionary
@@ -45,6 +61,7 @@ export default function App() {
         sound={initialSound}
         typedValue={typedValue}
         setTypedValue={setTypedValue}
+        toggleTheme={toggleTheme}
       />
     </>
   );

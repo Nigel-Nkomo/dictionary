@@ -2,12 +2,17 @@ import Book from "./Book";
 import Moon from "./Moon";
 // import Search from "./Search";
 import "./Header.css";
-import { useState } from "react";
 
-export default function Header({ word, setWord, typedValue, setTypedValue }) {
+export default function Header({
+  word,
+  setWord,
+  typedValue,
+  setTypedValue,
+  toggleTheme,
+}) {
   return (
     <header className="header">
-      <HeaderTop />
+      <HeaderTop toggleTheme={toggleTheme} />
       <HeaderSearch
         word={word}
         setWord={setWord}
@@ -18,7 +23,7 @@ export default function Header({ word, setWord, typedValue, setTypedValue }) {
   );
 }
 
-function HeaderTop() {
+function HeaderTop({ toggleTheme }) {
   return (
     <div className="header__top">
       <Book />
