@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Dictionary from "./components/Dictionary";
-import { getStorageTheme } from "./getStorageTheme";
+import getStorageTheme from "./getStorageTheme";
 
 export default function App() {
   //state
@@ -12,6 +12,7 @@ export default function App() {
   const [word, setWord] = useState("juice");
   const [typedValue, setTypedValue] = useState(word);
   const [theme, setTheme] = useState(getStorageTheme());
+  const [font, setFont] = useState("ubuntu");
 
   //api
   const apiKey = "fd7f0c41-22a9-4981-bfe8-0bc968f204db";
@@ -44,6 +45,7 @@ export default function App() {
     localStorage.setItem("theme", theme);
   }, [theme]);
 
+  //handlers
   const toggleTheme = () => {
     if (theme === "light-theme") {
       setTheme("dark-theme");

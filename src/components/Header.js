@@ -31,7 +31,7 @@ function HeaderTop({ toggleTheme, theme }) {
       <Book />
       <div className="header__fontAndTheme">
         <select className="header__font">
-          <option>Sans Serif</option>
+          <option>Ubuntu</option>
           <option>Serif</option>
           <option>Mono</option>
         </select>
@@ -39,9 +39,9 @@ function HeaderTop({ toggleTheme, theme }) {
         <button className="header__themeButton" onClick={toggleTheme}>
           <div
             className={
-              theme === "light-theme"
-                ? "header__circle"
-                : "header__circleTranslated"
+              theme === "dark-theme"
+                ? "header__circleTranslated"
+                : "header__circle"
             }
           ></div>
         </button>
