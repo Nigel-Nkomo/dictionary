@@ -17,7 +17,7 @@
 .header__search {
   display: flex;
   justify-content: space-between;
-  background-color: var(--light-grey);
+  background-color: var(--search-bg);
   margin-top: 1rem;
   border-radius: 0.5rem;
   padding: 0.2rem;
@@ -30,7 +30,7 @@
   height: 2rem;
   border-radius: 0.3rem;
   border: none;
-  background-color: var(--xxlight-black);
+  background-color: var(--btn-theme);
   color: var(--white);
   text-transform: uppercase;
   cursor: pointer;
@@ -51,7 +51,7 @@
   width: 80%;
   background-color: transparent;
   font-size: 1rem;
-  color: var(--black);
+  color: var(--txt);
   font-weight: 600;
 }
 
@@ -76,12 +76,13 @@
 }
 
 .header__themeButton {
-  background-color: var(--xxlight-black);
+  background-color: var(--btn-theme);
   width: 2rem;
   height: 1rem;
   border-radius: 2rem;
-  padding: 0;
+  padding: 0.1rem;
   margin-left: 0.5rem;
+  border: none;
 }
 
 .header__circle {

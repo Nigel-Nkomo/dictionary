@@ -19,6 +19,16 @@
 
 .light-theme {
   --txt: #050505;
+  --bg: #ffffff;
+  --btn-theme: #3a3a3a;
+  --search-bg: #e9e9e9;
+}
+
+.dark-theme {
+  --txt: #ffffff;
+  --bg: #050505;
+  --btn-theme: #a445ed;
+  --search-bg: #3a3a3a;
 }
 
 * {
@@ -29,6 +39,11 @@
 
 html {
   font-size: 150%;
+}
+
+body {
+  background-color: var(--bg);
+  color: var(--txt);
 }
 
 .dictionary {
