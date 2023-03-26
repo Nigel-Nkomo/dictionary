@@ -11,10 +11,19 @@ export default function Header({
   setTypedValue,
   toggleTheme,
   theme,
+  selectedFont,
+  setSelectedFont,
+  handleFont,
 }) {
   return (
     <header className="header">
-      <HeaderTop toggleTheme={toggleTheme} theme={theme} />
+      <HeaderTop
+        toggleTheme={toggleTheme}
+        theme={theme}
+        selectedFont={selectedFont}
+        setSelectedFont={setSelectedFont}
+        //handleFont={handleFont}
+      />
       <HeaderSearch
         word={word}
         setWord={setWord}
@@ -25,15 +34,28 @@ export default function Header({
   );
 }
 
-function HeaderTop({ toggleTheme, theme }) {
+function HeaderTop({
+  toggleTheme,
+  theme,
+  selectedFont,
+  setSelectedFont,
+  handleFont,
+}) {
   return (
     <div className="header__top">
       <Book />
       <div className="header__fontAndTheme">
-        <select className="header__font">
-          <option>Ubuntu</option>
-          <option>Serif</option>
-          <option>Mono</option>
+        <select
+          className="header__font"
+          value={selectedFont}
+          onChange={(e) => {
+            setSelectedFont(e.target.value);
+            //handleFont();
+          }}
+        >
+          <option value="Ubuntu">Ubuntu</option>
+          <option value="Montserrat">Montserrat</option>
+          <option value="Roboto Mono">Roboto Mono</option>
         </select>
         <div className="header__line"></div>
         <button className="header__themeButton" onClick={toggleTheme}>

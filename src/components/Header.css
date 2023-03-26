@@ -46,10 +46,12 @@
   padding-right: 0.5rem;
   background-color: var(--bg);
   color: var(--txt);
+  border: none;
 }
 
 header__font:focus {
   outline: none;
+  border: none;
 }
 
 .header__input {

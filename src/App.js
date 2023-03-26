@@ -12,7 +12,8 @@ export default function App() {
   const [word, setWord] = useState("juice");
   const [typedValue, setTypedValue] = useState(word);
   const [theme, setTheme] = useState(getStorageTheme());
-  const [font, setFont] = useState("ubuntu");
+  const [selectedFont, setSelectedFont] = useState("Ubuntu");
+  const [dictClassName, setDictClassName] = useState("dictionary--ubuntu");
 
   //api
   const apiKey = "fd7f0c41-22a9-4981-bfe8-0bc968f204db";
@@ -45,6 +46,18 @@ export default function App() {
     localStorage.setItem("theme", theme);
   }, [theme]);
 
+  useEffect(() => {
+    if (selectedFont === "Ubuntu") {
+      setDictClassName("dictionary--ubuntu");
+    }
+    if (selectedFont === "Montserrat") {
+      setDictClassName("dictionary--montserrat");
+    }
+    if (selectedFont === "Roboto Mono") {
+      setDictClassName("dictionary--robotoMono");
+    }
+  }, [selectedFont]);
+
   //handlers
   const toggleTheme = () => {
     if (theme === "light-theme") {
@@ -53,6 +66,18 @@ export default function App() {
       setTheme("light-theme");
     }
   };
+
+  // const handleFont = () => {
+  //   if (selectedFont === "Ubuntu") {
+  //     setDictClassName("dictionary--ubuntu");
+  //   }
+  //   if (selectedFont === "Montserrat") {
+  //     setDictClassName("dictionary--montserrat");
+  //   }
+  //   if (selectedFont === "Roboto Mono") {
+  //     setDictClassName("dictionary--robotoMono");
+  //   }
+  // };
 
   return (
     <>
@@ -65,6 +90,10 @@ export default function App() {
         setTypedValue={setTypedValue}
         toggleTheme={toggleTheme}
         theme={theme}
+        selectedFont={selectedFont}
+        setSelectedFont={setSelectedFont}
+        // handleFont={handleFont}
+        dictClassName={dictClassName}
       />
     </>
   );

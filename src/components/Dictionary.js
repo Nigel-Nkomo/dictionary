@@ -11,9 +11,13 @@ export default function Dictionary({
   setTypedValue,
   toggleTheme,
   theme,
+  selectedFont,
+  setSelectedFont,
+  //handleFont,
+  dictClassName,
 }) {
   return (
-    <div className="dictionary">
+    <div className={`dictionary ${dictClassName}`}>
       <Header
         word={word}
         setWord={setWord}
@@ -21,6 +25,9 @@ export default function Dictionary({
         setTypedValue={setTypedValue}
         toggleTheme={toggleTheme}
         theme={theme}
+        selectedFont={selectedFont}
+        setSelectedFont={setSelectedFont}
+        // handleFont={handleFont}
       />
       <Body wordData={wordData} sound={sound} word={word} />
     </div>
