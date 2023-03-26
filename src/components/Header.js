@@ -4,11 +4,16 @@ import Moon from "./Moon";
 import "./Header.css";
 import { useState } from "react";
 
-export default function Header({ word, setWord }) {
+export default function Header({ word, setWord, typedValue, setTypedValue }) {
   return (
     <header className="header">
       <HeaderTop />
-      <HeaderSearch word={word} setWord={setWord} />
+      <HeaderSearch
+        word={word}
+        setWord={setWord}
+        typedValue={typedValue}
+        setTypedValue={setTypedValue}
+      />
     </header>
   );
 }
@@ -33,9 +38,7 @@ function HeaderTop() {
   );
 }
 
-function HeaderSearch({ word, setWord }) {
-  const [typedValue, setTypedValue] = useState(word);
-
+function HeaderSearch({ word, setWord, typedValue, setTypedValue }) {
   return (
     <div className="header__search">
       <input

@@ -9,6 +9,7 @@ export default function App() {
     "https://media.merriam-webster.com/audio/prons/en/us/mp3/j/juice001.mp3"
   );
   const [word, setWord] = useState("juice");
+  const [typedValue, setTypedValue] = useState(word);
 
   //api
   const apiKey = "fd7f0c41-22a9-4981-bfe8-0bc968f204db";
@@ -18,7 +19,7 @@ export default function App() {
     const getData = () => {
       axios.get(requestURL).then((response) => {
         setWordData(response.data);
-        console.log(wordData);
+        console.log(requestURL);
       });
     };
     getData();
@@ -42,6 +43,8 @@ export default function App() {
         word={word}
         setWord={setWord}
         sound={initialSound}
+        typedValue={typedValue}
+        setTypedValue={setTypedValue}
       />
     </>
   );
