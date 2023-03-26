@@ -2,6 +2,7 @@ import Book from "./Book";
 import Moon from "./Moon";
 // import Search from "./Search";
 import "./Header.css";
+import Sun from "./Sun";
 
 export default function Header({
   word,
@@ -9,10 +10,11 @@ export default function Header({
   typedValue,
   setTypedValue,
   toggleTheme,
+  theme,
 }) {
   return (
     <header className="header">
-      <HeaderTop toggleTheme={toggleTheme} />
+      <HeaderTop toggleTheme={toggleTheme} theme={theme} />
       <HeaderSearch
         word={word}
         setWord={setWord}
@@ -23,7 +25,7 @@ export default function Header({
   );
 }
 
-function HeaderTop({ toggleTheme }) {
+function HeaderTop({ toggleTheme, theme }) {
   return (
     <div className="header__top">
       <Book />
@@ -34,10 +36,16 @@ function HeaderTop({ toggleTheme }) {
           <option>Mono</option>
         </select>
         <div className="header__line"></div>
-        <form className="header__themeButton">
-          <div className="header__circle"></div>
-        </form>
-        <Moon />
+        <button className="header__themeButton" onClick={toggleTheme}>
+          <div
+            className={
+              theme === "light-theme"
+                ? "header__circle"
+                : "header__circleTranslated"
+            }
+          ></div>
+        </button>
+        {theme === "light-theme" ? <Moon /> : <Sun />}
       </div>
     </div>
   );

@@ -41,7 +41,7 @@ export default function App() {
 
   useEffect(() => {
     document.documentElement.className = theme;
-    localStorage.setItem(theme);
+    localStorage.setItem("theme", theme);
   }, [theme]);
 
   const toggleTheme = () => {
@@ -62,6 +62,7 @@ export default function App() {
         typedValue={typedValue}
         setTypedValue={setTypedValue}
         toggleTheme={toggleTheme}
+        theme={theme}
       />
     </>
   );

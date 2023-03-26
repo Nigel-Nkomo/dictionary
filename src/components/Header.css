@@ -65,7 +65,7 @@
   height: 1.1rem;
 }
 
-.header__moon {
+.header__icon {
   width: 0.9rem;
   height: 0.9rem;
   margin-left: 0.5rem;
@@ -80,7 +80,7 @@
   width: 2rem;
   height: 1rem;
   border-radius: 2rem;
-  padding: 0.09rem;
+  padding: 0;
   margin-left: 0.5rem;
 }
 
@@ -89,6 +89,17 @@
   width: 0.8rem;
   border-radius: 50%;
   background-color: var(--white);
+  transform: translateX(0);
+  transition: all 0.5s;
+}
+
+.header__circleTranslated {
+  height: 0.8rem;
+  width: 0.8rem;
+  border-radius: 50%;
+  background-color: var(--white);
+  transform: translateX(1rem);
+  transition: all 0.5s;
 }
 
 .header__checkbox {

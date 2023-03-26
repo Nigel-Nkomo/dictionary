@@ -10,6 +10,7 @@ export default function Dictionary({
   typedValue,
   setTypedValue,
   toggleTheme,
+  theme,
 }) {
   return (
     <div className="dictionary">
@@ -19,6 +20,7 @@ export default function Dictionary({
         typedValue={typedValue}
         setTypedValue={setTypedValue}
         toggleTheme={toggleTheme}
+        theme={theme}
       />
       <Body wordData={wordData} sound={sound} word={word} />
     </div>
